@@ -21,7 +21,7 @@ namespace WindowsForms_Lab1
 
         private void newBookshelfToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BookshelfWindow bookshelf = new BookshelfWindow();
+            BookshelfWindow bookshelf = new BookshelfWindow(database);
             bookshelf.MdiParent = this;
             bookshelf.Show();
         }

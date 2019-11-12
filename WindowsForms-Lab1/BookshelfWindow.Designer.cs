@@ -28,19 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.listView1 = new System.Windows.Forms.ListView();
             this.Title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Author = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Genre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenu = new System.Windows.Forms.MenuStrip();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addCntextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editContextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteContextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.toolStripMenu.SuspendLayout();
+            this.contextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -49,17 +55,17 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.listView1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(800, 426);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(734, 361);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.Size = new System.Drawing.Size(800, 450);
+            this.toolStripContainer1.Size = new System.Drawing.Size(734, 361);
             this.toolStripContainer1.TabIndex = 0;
             this.toolStripContainer1.Text = "toolStripContainer1";
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuStrip1);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStripMenu);
             // 
             // listView1
             // 
@@ -72,7 +78,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(800, 426);
+            this.listView1.Size = new System.Drawing.Size(734, 361);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -97,16 +103,17 @@
             this.Genre.Text = "Genre";
             this.Genre.Width = 108;
             // 
-            // menuStrip1
+            // toolStripMenu
             // 
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenu.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStripMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
+            this.toolStripMenu.Name = "toolStripMenu";
+            this.toolStripMenu.Size = new System.Drawing.Size(47, 24);
+            this.toolStripMenu.TabIndex = 0;
+            this.toolStripMenu.Text = "menuStrip1";
+            this.toolStripMenu.Visible = false;
             // 
             // editToolStripMenuItem
             // 
@@ -119,26 +126,59 @@
             // addBookToolStripMenuItem
             // 
             this.addBookToolStripMenuItem.Name = "addBookToolStripMenuItem";
-            this.addBookToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addBookToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.addBookToolStripMenuItem.Text = "Add Book";
-            this.addBookToolStripMenuItem.Click += new System.EventHandler(this.addBookToolStripMenuItem_Click);
+            this.addBookToolStripMenuItem.Click += new System.EventHandler(this.addMenuItem_Click);
+            // 
+            // contextMenu
+            // 
+            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addCntextMenuItem,
+            this.editContextMenuItem,
+            this.deleteContextMenuItem});
+            this.contextMenu.Name = "contextMenuStrip1";
+            this.contextMenu.Size = new System.Drawing.Size(108, 70);
+            // 
+            // addCntextMenuItem
+            // 
+            this.addCntextMenuItem.Name = "addCntextMenuItem";
+            this.addCntextMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.addCntextMenuItem.Text = "Add";
+            this.addCntextMenuItem.Click += new System.EventHandler(this.addMenuItem_Click);
+            // 
+            // editContextMenuItem
+            // 
+            this.editContextMenuItem.Name = "editContextMenuItem";
+            this.editContextMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.editContextMenuItem.Text = "Edit";
+            this.editContextMenuItem.Click += new System.EventHandler(this.editContextMenuItem_Click);
+            // 
+            // deleteContextMenuItem
+            // 
+            this.deleteContextMenuItem.Name = "deleteContextMenuItem";
+            this.deleteContextMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteContextMenuItem.Text = "Delete";
+            this.deleteContextMenuItem.Click += new System.EventHandler(this.deleteContextMenuItem_Click);
             // 
             // BookshelfWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(734, 361);
+            this.ContextMenuStrip = this.contextMenu;
             this.Controls.Add(this.toolStripContainer1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.toolStripMenu;
             this.Name = "BookshelfWindow";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.BookshelfWindow_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.toolStripMenu.ResumeLayout(false);
+            this.toolStripMenu.PerformLayout();
+            this.contextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -151,8 +191,12 @@
         private System.Windows.Forms.ColumnHeader Author;
         private System.Windows.Forms.ColumnHeader Date;
         private System.Windows.Forms.ColumnHeader Genre;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip toolStripMenu;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addBookToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenu;
+        private System.Windows.Forms.ToolStripMenuItem addCntextMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editContextMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteContextMenuItem;
     }
 }
