@@ -55,7 +55,7 @@
             // newBookshelfToolStripMenuItem
             // 
             this.newBookshelfToolStripMenuItem.Name = "newBookshelfToolStripMenuItem";
-            this.newBookshelfToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newBookshelfToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.newBookshelfToolStripMenuItem.Text = "New Bookshelf";
             this.newBookshelfToolStripMenuItem.Click += new System.EventHandler(this.newBookshelfToolStripMenuItem_Click);
             // 

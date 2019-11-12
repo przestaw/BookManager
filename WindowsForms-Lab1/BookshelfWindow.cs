@@ -14,10 +14,17 @@ namespace WindowsForms_Lab1
     {
         private Database database;
 
+        private enum Range { all, before, after}
+        
+        private Range range = Range.all;
+
+        internal Func<Book, bool> rangePredicate;
+
         public BookshelfWindow(Database database)
         {
             InitializeComponent();
             this.database = database;
+            rangePredicate = b => { return true; };
         }
 
         private void addMenuItem_Click(object sender, EventArgs e)
@@ -58,23 +65,35 @@ namespace WindowsForms_Lab1
             }
         }
 
-        private void Database_EditBookEvent(Book obj)
+        private void Database_EditBookEvent(Book book)
         {
-            foreach (ListViewItem iter in listView1.Items)
+            if (rangePredicate(book))
             {
-                if (ReferenceEquals(iter.Tag, obj)) 
+                foreach (ListViewItem iter in listView1.Items)
                 {
-                    UpdateItem(iter);
-                    break;
+                    if (ReferenceEquals(iter.Tag, book))
+                    {
+                        UpdateItem(iter);
+                        return;
+                    }
                 }
+                //Book was not displayed
+                Database_AddBookEvent(book);
+                //function used to avoid duplication of code
             }
+            else 
+            {
+                //Book could be displayed and need to be removed
+                Database_DeleteBookEvent(book);
+            }
+            
         }
 
-        private void Database_DeleteBookEvent(Book obj)
+        private void Database_DeleteBookEvent(Book book)
         {
             foreach (ListViewItem iter in listView1.Items)
             {
-                if (ReferenceEquals(iter.Tag, obj))
+                if (ReferenceEquals(iter.Tag, book))
                 {
                     listView1.Items.Remove(iter);
                     break;
@@ -84,10 +103,13 @@ namespace WindowsForms_Lab1
 
         private void Database_AddBookEvent(Book book)
         {
-            ListViewItem item = new ListViewItem();
-            item.Tag = book;
-            UpdateItem(item);
-            listView1.Items.Add(item);
+            if (rangePredicate(book)) 
+            {
+                ListViewItem item = new ListViewItem();
+                item.Tag = book;
+                UpdateItem(item);
+                listView1.Items.Add(item);
+            }
         }
 
         private void UpdateItem(ListViewItem item)
@@ -99,12 +121,15 @@ namespace WindowsForms_Lab1
             item.SubItems[1].Text = book.Author;
             item.SubItems[2].Text = book.PublishDate.ToShortDateString();
             item.SubItems[3].Text = book.StringGenere;
+
+            //toolStripStatusLabel.Text = listView1.Items.Count.ToString();
         }
 
         private void UpdateItems()
         {
             listView1.Items.Clear();
-            foreach (Book iter in database.books)
+
+            foreach (Book iter in database.books.Where(rangePredicate))
             {
                 ListViewItem item = new ListViewItem();
                 item.Tag = iter;
@@ -119,6 +144,44 @@ namespace WindowsForms_Lab1
             database.AddBookEvent += Database_AddBookEvent;
             database.DeleteBookEvent += Database_DeleteBookEvent;
             database.EditBookEvent += Database_EditBookEvent;
+        }
+
+        private void booksAfter2000ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            filterBooks(Range.after);
+        }
+
+        private void booksBefore2000ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            filterBooks(Range.before);
+        }
+
+        private void allBooksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            filterBooks(Range.all);
+        }
+
+        private void filterBooks(Range newRange)
+        {
+            if (range != newRange)
+            {
+                range = newRange;
+                switch(range)
+                {
+                    default:
+                    case Range.all:
+                        rangePredicate = b => { return true; };
+                        break;
+                    case Range.after:
+                        rangePredicate = b => { return (b.PublishDate > new DateTime(1999, 12, 31)); };
+                        break;
+                    case Range.before:
+                        rangePredicate = b => { return (b.PublishDate < new DateTime(2000, 1, 1)); };
+                        break;
+                }
+                UpdateItems();
+            }
         }
     }
 

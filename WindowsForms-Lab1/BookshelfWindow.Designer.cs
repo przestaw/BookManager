@@ -38,6 +38,10 @@
             this.toolStripMenu = new System.Windows.Forms.MenuStrip();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.booksAfter2000ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.booksBefore2000ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allBooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addCntextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editContextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +59,7 @@
             // toolStripContainer1.ContentPanel
             // 
             this.toolStripContainer1.ContentPanel.Controls.Add(this.listView1);
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(734, 361);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(734, 337);
             this.toolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer1.Location = new System.Drawing.Point(0, 0);
             this.toolStripContainer1.Name = "toolStripContainer1";
@@ -78,7 +82,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(734, 361);
+            this.listView1.Size = new System.Drawing.Size(734, 337);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -107,13 +111,13 @@
             // 
             this.toolStripMenu.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStripMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editToolStripMenuItem});
+            this.editToolStripMenuItem,
+            this.showToolStripMenuItem});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(47, 24);
+            this.toolStripMenu.Size = new System.Drawing.Size(734, 24);
             this.toolStripMenu.TabIndex = 0;
             this.toolStripMenu.Text = "menuStrip1";
-            this.toolStripMenu.Visible = false;
             // 
             // editToolStripMenuItem
             // 
@@ -129,6 +133,37 @@
             this.addBookToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.addBookToolStripMenuItem.Text = "Add Book";
             this.addBookToolStripMenuItem.Click += new System.EventHandler(this.addMenuItem_Click);
+            // 
+            // showToolStripMenuItem
+            // 
+            this.showToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.booksAfter2000ToolStripMenuItem,
+            this.booksBefore2000ToolStripMenuItem,
+            this.allBooksToolStripMenuItem});
+            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.showToolStripMenuItem.Text = "Show";
+            // 
+            // booksAfter2000ToolStripMenuItem
+            // 
+            this.booksAfter2000ToolStripMenuItem.Name = "booksAfter2000ToolStripMenuItem";
+            this.booksAfter2000ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.booksAfter2000ToolStripMenuItem.Text = "Books after 2000";
+            this.booksAfter2000ToolStripMenuItem.Click += new System.EventHandler(this.booksAfter2000ToolStripMenuItem_Click);
+            // 
+            // booksBefore2000ToolStripMenuItem
+            // 
+            this.booksBefore2000ToolStripMenuItem.Name = "booksBefore2000ToolStripMenuItem";
+            this.booksBefore2000ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.booksBefore2000ToolStripMenuItem.Text = "Books before 2000";
+            this.booksBefore2000ToolStripMenuItem.Click += new System.EventHandler(this.booksBefore2000ToolStripMenuItem_Click);
+            // 
+            // allBooksToolStripMenuItem
+            // 
+            this.allBooksToolStripMenuItem.Name = "allBooksToolStripMenuItem";
+            this.allBooksToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.allBooksToolStripMenuItem.Text = "All books";
+            this.allBooksToolStripMenuItem.Click += new System.EventHandler(this.allBooksToolStripMenuItem_Click);
             // 
             // contextMenu
             // 
@@ -198,5 +233,9 @@
         private System.Windows.Forms.ToolStripMenuItem addCntextMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editContextMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteContextMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem booksAfter2000ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem booksBefore2000ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allBooksToolStripMenuItem;
     }
 }
