@@ -17,6 +17,10 @@ namespace WindowsForms_Lab1
         public BookshelfManager()
         {
             InitializeComponent();
+            //create first view
+            BookshelfWindow bookshelf = new BookshelfWindow(database);
+            bookshelf.MdiParent = this;
+            bookshelf.Show();
         }
 
         private void newBookshelfToolStripMenuItem_Click(object sender, EventArgs e)

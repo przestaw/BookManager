@@ -183,6 +183,14 @@ namespace WindowsForms_Lab1
                 UpdateItems();
             }
         }
+
+        private void BookshelfWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if ((MdiParent.MdiChildren.Length < 2) && (e.CloseReason == CloseReason.UserClosing))
+            {
+                e.Cancel = true;
+            }
+        }
     }
 
         

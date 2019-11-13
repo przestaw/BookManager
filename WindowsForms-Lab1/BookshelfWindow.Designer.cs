@@ -205,6 +205,7 @@
             this.MainMenuStrip = this.toolStripMenu;
             this.Name = "BookshelfWindow";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookshelfWindow_FormClosing);
             this.Load += new System.EventHandler(this.BookshelfWindow_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
