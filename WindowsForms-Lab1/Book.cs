@@ -34,7 +34,7 @@ namespace WindowsForms_Lab1
             set;
         }
 
-        public enum BookGenere { Criminal, Fantasy, Romance};
+        public enum BookGenere { Criminal = 1, Fantasy = 2, Romance = 3};
 
         public BookGenere Genere
         {

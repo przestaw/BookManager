@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,6 +21,7 @@ namespace WindowsForms_Lab1
             InitializeComponent();
             this.book = book;
             this.bookList = bookList;
+            picturePicker1.propertyChange += GenerePrinter;
         }
 
         public string Title
@@ -39,8 +41,29 @@ namespace WindowsForms_Lab1
 
         public Book.BookGenere BookGenere
         {
-            // TODO
-            get { return Book.BookGenere.Criminal; }
+            get 
+            {//already validated
+                return (Book.BookGenere)picturePicker1.Option;
+            }
+        }
+
+        private void GenerePrinter(int option) 
+        {
+            switch(option)
+            {
+                case 0:
+                    picturePicker1.DisplayedText = "Pick a Genre !";
+                    break;
+                case 1:
+                    picturePicker1.DisplayedText = "Criminal";
+                    break;
+                case 2:
+                    picturePicker1.DisplayedText = "Fantasy";
+                    break;
+                case 3:
+                    picturePicker1.DisplayedText = "Romance";
+                    break;
+            }
         }
 
         private void BookForm_Load(object sender, EventArgs e)
@@ -50,6 +73,7 @@ namespace WindowsForms_Lab1
                 titleTextBox.Text = book.Title;
                 authorTextBox.Text = book.Author;
                 dateTimePicker.Value = book.PublishDate;
+                picturePicker1.Option = (int)book.Genere;
             }
             else 
             {
@@ -79,6 +103,8 @@ namespace WindowsForms_Lab1
             try
             {
                 string currentTitle = titleTextBox.Text;
+                if (!Regex.IsMatch(currentTitle, ".*?[a-zA-Z].*?"))
+                    throw new Exception("Book must have a title");
                 foreach (Book iter in bookList)
                     if (iter.Title == currentTitle && !ReferenceEquals(book, iter))
                         throw new Exception("Book with this title exists");
@@ -87,6 +113,20 @@ namespace WindowsForms_Lab1
             {
                 e.Cancel = true;
                 errorProvider1.SetError(titleTextBox, except.Message);
+            }
+        }
+
+        private void picturePicker1_Validated(object sender, EventArgs e)
+        {
+            errorProvider1.SetError(picturePicker1, "");
+        }
+
+        private void picturePicker1_Validating(object sender, CancelEventArgs e)
+        {
+            if (picturePicker1.Option == 0)
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(picturePicker1, "You must pick a Genere");
             }
         }
     }
