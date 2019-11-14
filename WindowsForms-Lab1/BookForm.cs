@@ -21,7 +21,7 @@ namespace WindowsForms_Lab1
             InitializeComponent();
             this.book = book;
             this.bookList = bookList;
-            picturePicker1.propertyChange += GenerePrinter;
+            generePicker1.propertyChange += GenerePrinter;
         }
 
         public string Title
@@ -42,26 +42,23 @@ namespace WindowsForms_Lab1
         public Book.BookGenere BookGenere
         {
             get 
-            {//already validated
-                return (Book.BookGenere)picturePicker1.Option;
+            {
+                return generePicker1.Genere;
             }
         }
 
-        private void GenerePrinter(int option) 
+        private void GenerePrinter(Book.BookGenere genere) 
         {
-            switch(option)
+            switch(genere)
             {
-                case 0:
-                    picturePicker1.DisplayedText = "Pick a Genre !";
+                case Book.BookGenere.Criminal:
+                    groupBox1.Text = "Criminal";
                     break;
-                case 1:
-                    picturePicker1.DisplayedText = "Criminal";
+                case Book.BookGenere.Fantasy:
+                    groupBox1.Text = "Fantasy";
                     break;
-                case 2:
-                    picturePicker1.DisplayedText = "Fantasy";
-                    break;
-                case 3:
-                    picturePicker1.DisplayedText = "Romance";
+                case Book.BookGenere.Romance:
+                    groupBox1.Text = "Romance";
                     break;
             }
         }
@@ -73,7 +70,7 @@ namespace WindowsForms_Lab1
                 titleTextBox.Text = book.Title;
                 authorTextBox.Text = book.Author;
                 dateTimePicker.Value = book.PublishDate;
-                picturePicker1.Option = (int)book.Genere;
+                generePicker1.Genere = book.Genere;
             }
             else 
             {
@@ -113,20 +110,6 @@ namespace WindowsForms_Lab1
             {
                 e.Cancel = true;
                 errorProvider1.SetError(titleTextBox, except.Message);
-            }
-        }
-
-        private void picturePicker1_Validated(object sender, EventArgs e)
-        {
-            errorProvider1.SetError(picturePicker1, "");
-        }
-
-        private void picturePicker1_Validating(object sender, CancelEventArgs e)
-        {
-            if (picturePicker1.Option == 0)
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(picturePicker1, "You must pick a Genere");
             }
         }
     }

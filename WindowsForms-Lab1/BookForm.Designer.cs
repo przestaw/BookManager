@@ -41,11 +41,13 @@
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.authorTextBox = new System.Windows.Forms.TextBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.picturePicker1 = new WindowsForms_Lab1.PicturePicker();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.generePicker1 = new WindowsForms_Lab1.GenerePicker();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +63,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(363, 228);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(347, 228);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -79,13 +81,13 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(357, 29);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(341, 29);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // okButton
             // 
             this.okButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.okButton.Location = new System.Drawing.Point(67, 3);
+            this.okButton.Location = new System.Drawing.Point(62, 3);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 0;
@@ -96,7 +98,7 @@
             // cancelButton
             // 
             this.cancelButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cancelButton.Location = new System.Drawing.Point(213, 3);
+            this.cancelButton.Location = new System.Drawing.Point(202, 3);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 1;
@@ -117,7 +119,7 @@
             this.tableLayoutPanel3.Controls.Add(this.titleTextBox, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.authorTextBox, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.dateTimePicker, 1, 2);
-            this.tableLayoutPanel3.Controls.Add(this.picturePicker1, 1, 3);
+            this.tableLayoutPanel3.Controls.Add(this.groupBox1, 1, 3);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -126,7 +128,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(357, 187);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(341, 187);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // label1
@@ -173,7 +175,7 @@
             this.titleTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.titleTextBox.Location = new System.Drawing.Point(76, 3);
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(258, 20);
+            this.titleTextBox.Size = new System.Drawing.Size(242, 20);
             this.titleTextBox.TabIndex = 4;
             this.titleTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.titleTextBox_Validating);
             this.titleTextBox.Validated += new System.EventHandler(this.titleTextBox_Validated);
@@ -183,7 +185,7 @@
             this.authorTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.authorTextBox.Location = new System.Drawing.Point(76, 23);
             this.authorTextBox.Name = "authorTextBox";
-            this.authorTextBox.Size = new System.Drawing.Size(258, 20);
+            this.authorTextBox.Size = new System.Drawing.Size(242, 20);
             this.authorTextBox.TabIndex = 5;
             // 
             // dateTimePicker
@@ -191,25 +193,29 @@
             this.dateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dateTimePicker.Location = new System.Drawing.Point(76, 43);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(258, 20);
+            this.dateTimePicker.Size = new System.Drawing.Size(242, 20);
             this.dateTimePicker.TabIndex = 6;
             // 
-            // picturePicker1
+            // groupBox1
             // 
-            this.picturePicker1.DisplayedText = "Pick an Option";
-            this.picturePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picturePicker1.Location = new System.Drawing.Point(75, 62);
-            this.picturePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.picturePicker1.MinimumSize = new System.Drawing.Size(248, 106);
-            this.picturePicker1.Name = "picturePicker1";
-            this.picturePicker1.Option = 0;
-            this.picturePicker1.Option1_Image = global::WindowsForms_Lab1.Properties.Resources.crime;
-            this.picturePicker1.Option2_Image = global::WindowsForms_Lab1.Properties.Resources.fantasy;
-            this.picturePicker1.Option3_Image = global::WindowsForms_Lab1.Properties.Resources.hearts;
-            this.picturePicker1.Size = new System.Drawing.Size(260, 123);
-            this.picturePicker1.TabIndex = 7;
-            this.picturePicker1.Validating += new System.ComponentModel.CancelEventHandler(this.picturePicker1_Validating);
-            this.picturePicker1.Validated += new System.EventHandler(this.picturePicker1_Validated);
+            this.groupBox1.Controls.Add(this.generePicker1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(76, 63);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(242, 121);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // generePicker1
+            // 
+            this.generePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.generePicker1.Genere = WindowsForms_Lab1.Book.BookGenere.Romance;
+            this.generePicker1.Location = new System.Drawing.Point(3, 16);
+            this.generePicker1.Margin = new System.Windows.Forms.Padding(2);
+            this.generePicker1.Name = "generePicker1";
+            this.generePicker1.Size = new System.Drawing.Size(236, 102);
+            this.generePicker1.TabIndex = 0;
             // 
             // errorProvider1
             // 
@@ -219,9 +225,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(363, 228);
+            this.ClientSize = new System.Drawing.Size(347, 228);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.MinimumSize = new System.Drawing.Size(379, 267);
+            this.MinimumSize = new System.Drawing.Size(300, 267);
             this.Name = "BookForm";
             this.Text = "BookForm";
             this.Load += new System.EventHandler(this.BookForm_Load);
@@ -229,6 +235,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
@@ -248,6 +255,7 @@
         private System.Windows.Forms.TextBox authorTextBox;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private PicturePicker picturePicker1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private GenerePicker generePicker1;
     }
 }

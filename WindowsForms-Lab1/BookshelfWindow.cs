@@ -96,7 +96,8 @@ namespace WindowsForms_Lab1
                 if (ReferenceEquals(iter.Tag, book))
                 {
                     listView1.Items.Remove(iter);
-                    break;
+                    CountLabel.Text = listView1.Items.Count.ToString();
+                    return;
                 }
             }
         }
@@ -109,7 +110,9 @@ namespace WindowsForms_Lab1
                 item.Tag = book;
                 UpdateItem(item);
                 listView1.Items.Add(item);
+                CountLabel.Text = listView1.Items.Count.ToString();
             }
+
         }
 
         private void UpdateItem(ListViewItem item)
@@ -121,8 +124,6 @@ namespace WindowsForms_Lab1
             item.SubItems[1].Text = book.Author;
             item.SubItems[2].Text = book.PublishDate.ToShortDateString();
             item.SubItems[3].Text = book.StringGenere;
-
-            //toolStripStatusLabel.Text = listView1.Items.Count.ToString();
         }
 
         private void UpdateItems()
@@ -136,6 +137,8 @@ namespace WindowsForms_Lab1
                 UpdateItem(item);
                 listView1.Items.Add(item);
             }
+
+            CountLabel.Text = listView1.Items.Count.ToString();
         }
 
         private void BookshelfWindow_Load(object sender, EventArgs e)
@@ -190,6 +193,18 @@ namespace WindowsForms_Lab1
             {
                 e.Cancel = true;
             }
+        }
+
+        private void BookshelfWindow_Activated(object sender, EventArgs e)
+        {
+            ToolStripManager.Merge(WindowStatusStrip, ((BookshelfManager)MdiParent).statusStrip1);
+            ToolStripManager.Merge(toolStrip1, ((BookshelfManager)MdiParent).toolStrip1);
+        }
+
+        private void BookshelfWindow_Deactivate(object sender, EventArgs e)
+        {
+            ToolStripManager.RevertMerge(((BookshelfManager)MdiParent).statusStrip1, WindowStatusStrip);
+            ToolStripManager.RevertMerge(((BookshelfManager)MdiParent).toolStrip1, toolStrip1);
         }
     }
 
