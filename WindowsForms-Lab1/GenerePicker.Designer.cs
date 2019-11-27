@@ -28,32 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.image = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
+            //this.image = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // image
             // 
-            this.image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.image.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.image.Location = new System.Drawing.Point(0, 0);
-            this.image.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.image.MinimumSize = new System.Drawing.Size(75, 81);
-            this.image.Name = "image";
-            this.image.Size = new System.Drawing.Size(112, 122);
-            this.image.TabIndex = 0;
-            this.image.TabStop = false;
-            this.image.Click += new System.EventHandler(this.image_Click);
-            // 
-            // GenerePicker
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.image);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Location = new System.Drawing.Point(0, 0);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "GenerePicker";
+            this.MinimumSize = new System.Drawing.Size(112, 112);
             this.Size = new System.Drawing.Size(112, 122);
-            ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
+            this.TabIndex = 0;
+            this.TabStop = false;
+            this.Click += new System.EventHandler(this.image_Click);
+            this.Name = "GenerePicker";
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }

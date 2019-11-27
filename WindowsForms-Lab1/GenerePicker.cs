@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace WindowsForms_Lab1
 {
-    public partial class GenerePicker : UserControl
+    public partial class GenerePicker : PictureBox
     {
         public GenerePicker()
         {
             genere = Book.BookGenere.Criminal;
             InitializeComponent();
-            image.BackgroundImage = Properties.Resources.crime;
-            image.Invalidate();
+            this.BackgroundImage = Properties.Resources.crime;
+            this.Invalidate();
         }
         public GenerePicker(Book.BookGenere genere)
         {
@@ -26,16 +26,16 @@ namespace WindowsForms_Lab1
             switch (genere)
             {
                 case Book.BookGenere.Fantasy:
-                    image.BackgroundImage = Properties.Resources.fantasy;
+                    this.BackgroundImage = Properties.Resources.fantasy;
                     break;
                 case Book.BookGenere.Romance:
-                    image.BackgroundImage = Properties.Resources.hearts;
+                    this.BackgroundImage = Properties.Resources.hearts;
                     break;
                 case Book.BookGenere.Criminal:
-                    image.BackgroundImage = Properties.Resources.crime;
+                    this.BackgroundImage = Properties.Resources.crime;
                     break;
             }
-            image.Invalidate();
+            this.Invalidate();
         }
 
         private Book.BookGenere genere;
@@ -65,18 +65,18 @@ namespace WindowsForms_Lab1
                 {
                     case Book.BookGenere.Fantasy:
                         genere = Book.BookGenere.Fantasy;
-                        image.BackgroundImage = Properties.Resources.fantasy;
+                        this.BackgroundImage = Properties.Resources.fantasy;
                         break;
                     case Book.BookGenere.Romance:
                         genere = Book.BookGenere.Romance;
-                        image.BackgroundImage = Properties.Resources.hearts;
+                        this.BackgroundImage = Properties.Resources.hearts;
                         break;
                     case Book.BookGenere.Criminal:
                         genere = Book.BookGenere.Criminal;
-                        image.BackgroundImage = Properties.Resources.crime;
+                        this.BackgroundImage = Properties.Resources.crime;
                         break;
                 }
-                image.Invalidate();
+                this.Invalidate();
                 propertyChange?.Invoke(genere);
             }
         }

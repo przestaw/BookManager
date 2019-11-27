@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.okButton = new System.Windows.Forms.Button();
@@ -41,13 +42,12 @@
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.authorTextBox = new System.Windows.Forms.TextBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.generePicker1 = new WindowsForms_Lab1.GenerePicker();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.generePicker1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,7 +119,7 @@
             this.tableLayoutPanel3.Controls.Add(this.titleTextBox, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.authorTextBox, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.dateTimePicker, 1, 2);
-            this.tableLayoutPanel3.Controls.Add(this.groupBox1, 1, 3);
+            this.tableLayoutPanel3.Controls.Add(this.generePicker1, 1, 3);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -164,7 +164,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 60);
+            this.label4.Location = new System.Drawing.Point(243, 60);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 3;
@@ -173,9 +173,9 @@
             // titleTextBox
             // 
             this.titleTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleTextBox.Location = new System.Drawing.Point(76, 3);
+            this.titleTextBox.Location = new System.Drawing.Point(243, 3);
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(242, 20);
+            this.titleTextBox.Size = new System.Drawing.Size(75, 20);
             this.titleTextBox.TabIndex = 4;
             this.titleTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.titleTextBox_Validating);
             this.titleTextBox.Validated += new System.EventHandler(this.titleTextBox_Validated);
@@ -183,39 +183,32 @@
             // authorTextBox
             // 
             this.authorTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.authorTextBox.Location = new System.Drawing.Point(76, 23);
+            this.authorTextBox.Location = new System.Drawing.Point(243, 23);
             this.authorTextBox.Name = "authorTextBox";
-            this.authorTextBox.Size = new System.Drawing.Size(242, 20);
+            this.authorTextBox.Size = new System.Drawing.Size(75, 20);
             this.authorTextBox.TabIndex = 5;
             // 
             // dateTimePicker
             // 
             this.dateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker.Location = new System.Drawing.Point(76, 43);
+            this.dateTimePicker.Location = new System.Drawing.Point(243, 43);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(242, 20);
+            this.dateTimePicker.Size = new System.Drawing.Size(75, 20);
             this.dateTimePicker.TabIndex = 6;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.generePicker1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(76, 63);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(242, 121);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
             // 
             // generePicker1
             // 
+            this.generePicker1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("generePicker1.BackgroundImage")));
+            this.generePicker1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.generePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.generePicker1.Genere = WindowsForms_Lab1.Book.BookGenere.Romance;
-            this.generePicker1.Location = new System.Drawing.Point(3, 16);
+            this.generePicker1.Location = new System.Drawing.Point(2, 62);
             this.generePicker1.Margin = new System.Windows.Forms.Padding(2);
+            this.generePicker1.MinimumSize = new System.Drawing.Size(75, 81);
             this.generePicker1.Name = "generePicker1";
-            this.generePicker1.Size = new System.Drawing.Size(236, 102);
+            this.generePicker1.Size = new System.Drawing.Size(236, 123);
             this.generePicker1.TabIndex = 0;
+            this.generePicker1.TabStop = false;
             // 
             // errorProvider1
             // 
@@ -235,7 +228,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.generePicker1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
@@ -255,7 +248,6 @@
         private System.Windows.Forms.TextBox authorTextBox;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.GroupBox groupBox1;
         private GenerePicker generePicker1;
     }
 }

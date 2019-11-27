@@ -21,7 +21,7 @@ namespace WindowsForms_Lab1
             InitializeComponent();
             this.book = book;
             this.bookList = bookList;
-            generePicker1.propertyChange += GenerePrinter;
+            //generePicker1.propertyChange += GenerePrinter;
         }
 
         public string Title
@@ -44,22 +44,6 @@ namespace WindowsForms_Lab1
             get 
             {
                 return generePicker1.Genere;
-            }
-        }
-
-        private void GenerePrinter(Book.BookGenere genere) 
-        {
-            switch(genere)
-            {
-                case Book.BookGenere.Criminal:
-                    groupBox1.Text = "Criminal";
-                    break;
-                case Book.BookGenere.Fantasy:
-                    groupBox1.Text = "Fantasy";
-                    break;
-                case Book.BookGenere.Romance:
-                    groupBox1.Text = "Romance";
-                    break;
             }
         }
 
